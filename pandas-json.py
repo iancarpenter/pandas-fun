@@ -34,10 +34,10 @@ def read_artworks_from_json(keys_to_use):
 
     artworks = []
 
-    for root, _, files in os.walk(JSON_ROOT):
+    for path, directories, files in os.walk(JSON_ROOT):
         for f in files:
             if f.endswith('json'):
-                record = get_record_from_file(os.path.join(root, f), keys_to_use)
+                record = get_record_from_file(os.path.join(path, f), keys_to_use)
                 artworks.append(record)
             break
     
